@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Agney Jadav, mechatronics engineer: additive manufacturing, automation, CAD and materials R&D. Portfolio and projects.">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Agney Jadav Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<style>
+/* Layout: one column "build sheet". Hero = name + spec line, then focus areas, projects as spec cards, timeline, contact.
+   Single dark look by choice: graphite steel ground, molten-amber accent taken from the LPBF melt pool. */
+:root{
+  --ground:#101418;
+  --plate:#171d23;
+  --line:#2a333c;
+  --ink:#e8ecef;
+  --muted:#93a0ab;
+  --amber:#f0a03c;
+  --amber-dim:#f0a03c22;
+  --cool:#7cc4d8;
+  --display:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  color-scheme:dark;
+}
+html[data-lang="de"] [lang="en"], html:not([data-lang="de"]) [lang="de"]{display:none!important}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:1rem;line-height:1.6;
+  background-image:repeating-linear-gradient(0deg,transparent 0 23px,#ffffff06 23px 24px);}
+a{color:var(--amber);text-decoration-thickness:1px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+.wrap{max-width:68rem;margin:0 auto;padding-inline:clamp(16px,4vw,40px);padding-block:0 4rem}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:#101418ee;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.7rem}
+.mark{font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.mark b{color:var(--ink);font-weight:500}
+nav{display:flex;gap:1.1rem;flex-wrap:wrap;font-size:.9rem}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--ink)}
+.lang{display:flex;border:1px solid var(--line);border-radius:4px;overflow:hidden;flex:none}
+.lang button{background:none;border:0;color:var(--muted);font:500 .78rem var(--mono);padding:.35rem .6rem;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--amber);color:#1a1206}
+@media (max-width:640px){nav{display:none}}
+
+.hero{display:grid;grid-template-columns:auto 1fr;gap:clamp(1.25rem,4vw,2.5rem);align-items:center;padding-block:clamp(3rem,8vw,5.5rem) 2.5rem}
+.portrait{width:clamp(96px,16vw,148px);aspect-ratio:1;max-width:100%;border-radius:50%;border:2px solid var(--amber);display:grid;place-items:center;
+  background:radial-gradient(circle at 35% 30%,#2a333c,#171d23);font:600 2.2rem var(--display);color:var(--amber);overflow:hidden}
+.portrait img{width:100%;height:100%;object-fit:cover}
+.hero h1{font-family:var(--display);font-weight:700;font-size:clamp(2.6rem,7vw,4.6rem);line-height:1;margin:0 0 .6rem;letter-spacing:-.01em}
+.role{font-family:var(--display);font-weight:500;font-size:clamp(1.05rem,2.4vw,1.4rem);color:var(--ink);margin:0;text-wrap:balance}
+.role i{font-style:normal;color:var(--amber)}
+.where{font-family:var(--mono);font-size:.82rem;color:var(--muted);margin:.8rem 0 0}
+@media (max-width:520px){.hero{grid-template-columns:1fr}}
+
+.pitch{font-size:1.12rem;max-width:62ch;color:var(--ink);margin:0 0 1.5rem}
+.status{display:inline-flex;align-items:center;gap:.55rem;border:1px solid var(--line);background:var(--plate);padding:.5rem .85rem;border-radius:999px;font-size:.9rem}
+.status::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:#4cc38a;box-shadow:0 0 0 4px #4cc38a22}
+.cta{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.4rem}
+.btn{display:inline-block;padding:.65rem 1.1rem;border-radius:4px;font-weight:500;text-decoration:none;border:1px solid var(--line);color:var(--ink)}
+.btn.primary{background:var(--amber);border-color:var(--amber);color:#1a1206}
+.btn:hover{border-color:var(--amber)}
+
+section{padding-block:3.5rem 0}
+.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin:0 0 .5rem}
+h2{font-family:var(--display);font-weight:600;font-size:clamp(1.7rem,3.6vw,2.3rem);margin:0 0 1.5rem;line-height:1.1;text-wrap:balance}
+
+.focus{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.focus div{background:var(--ground);padding:1.3rem 1.25rem;min-width:0}
+.focus h3{font-family:var(--display);font-weight:600;font-size:1.2rem;margin:0 0 .4rem}
+.focus p{margin:0;color:var(--muted);font-size:.93rem}
+.focus .k{font-family:var(--mono);font-size:.72rem;color:var(--cool);display:block;margin-bottom:.6rem}
+
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));gap:1.25rem}
+.card{background:var(--plate);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:border-color .2s}
+.card:hover{border-color:#f0a03c88}
+.thumb{aspect-ratio:16/9;max-width:100%;background:
+  linear-gradient(135deg,#1d252d,#141a20);display:grid;place-items:center;border-bottom:1px solid var(--line);
+  font-family:var(--mono);font-size:.75rem;color:#5c6975}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.card .in{padding:1.1rem 1.15rem 1.25rem;display:flex;flex-direction:column;gap:.55rem;flex:1}
+.card h3{font-family:var(--display);font-weight:600;font-size:1.25rem;margin:0;line-height:1.2}
+.card p{margin:0;color:var(--muted);font-size:.93rem}
+.spec{font-family:var(--mono);font-size:.74rem;color:var(--cool);margin:0}
+.tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:auto;padding-top:.4rem}
+.tags span{font-family:var(--mono);font-size:.7rem;padding:.15rem .45rem;border:1px solid var(--line);border-radius:3px;color:var(--muted)}
+.card .more{font-size:.88rem;font-weight:500}
+.card.lead{grid-column:1/-1}
+@media (min-width:760px){.card.lead{flex-direction:row}.card.lead .thumb{flex:0 0 46%;aspect-ratio:auto;min-height:15rem;border-bottom:0;border-right:1px solid var(--line)}}
+
+.timeline{display:grid;gap:0;border-left:1px solid var(--line);margin-left:.3rem}
+.tl{position:relative;padding:0 0 1.6rem 1.4rem;min-width:0}
+.tl::before{content:"";position:absolute;left:-5px;top:.45rem;width:9px;height:9px;border-radius:50%;background:var(--ground);border:2px solid var(--amber)}
+.tl .when{font-family:var(--mono);font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.tl h3{font-family:var(--display);font-weight:600;font-size:1.15rem;margin:.1rem 0 .2rem}
+.tl p{margin:0;color:var(--muted);font-size:.93rem;max-width:65ch}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:2.5rem}
+
+.skills{display:grid;gap:.9rem}
+.skills div{display:grid;grid-template-columns:9rem 1fr;gap:1rem;border-top:1px solid var(--line);padding-top:.8rem}
+.skills dt{font-family:var(--mono);font-size:.78rem;color:var(--amber);text-transform:uppercase;letter-spacing:.06em}
+.skills dd{margin:0;font-size:.95rem;min-width:0}
+@media (max-width:520px){.skills div{grid-template-columns:1fr;gap:.2rem}}
+
+.contact{background:var(--plate);border:1px solid var(--line);border-radius:6px;padding:clamp(1.25rem,4vw,2.25rem);display:grid;gap:1rem}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1rem;border-top:1px solid var(--line);padding-top:.9rem}
+.row .lab{font-family:var(--mono);font-size:.75rem;color:var(--muted);width:6rem;text-transform:uppercase;letter-spacing:.08em}
+.row .val{font-size:1.05rem;user-select:all;overflow-wrap:anywhere;min-width:0}
+.copy{background:none;border:1px solid var(--line);color:var(--muted);font:500 .74rem var(--mono);padding:.25rem .55rem;border-radius:3px;cursor:pointer}
+.copy:hover{color:var(--ink);border-color:var(--amber)}
+footer{margin-top:3rem;font-family:var(--mono);font-size:.75rem;color:#5c6975}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <span class="mark"><b>A. Jadav</b> · Mechatronics</span>
+    <nav aria-label="Sections">
+      <a href="#projects"><span lang="en">Projects</span><span lang="de">Projekte</span></a>
+      <a href="#experience"><span lang="en">Experience</span><span lang="de">Erfahrung</span></a>
+      <a href="#skills"><span lang="en">Skills</span><span lang="de">Kenntnisse</span></a>
+      <a href="#contact"><span lang="en">Contact</span><span lang="de">Kontakt</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="btn-en" data-set="en" aria-pressed="true">EN</button>
+      <button type="button" id="btn-de" data-set="de" aria-pressed="false">DE</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <div class="portrait"><img src="assets/photo.jpg" alt="Agney Jadav"></div>
+    <div>
+      <h1>Agney Jadav</h1>
+      <p class="role" lang="en">Mechatronics engineer for <i>additive manufacturing</i>, <i>automation</i>, <i>CAD</i> and <i>materials R&amp;D</i></p>
+      <p class="role" lang="de">Mechatronik-Ingenieur für <i>additive Fertigung</i>, <i>Automatisierung</i>, <i>CAD</i> und <i>Werkstoff-F&amp;E</i></p>
+      <p class="where" lang="en">Master's student · TH Rosenheim, Germany</p>
+      <p class="where" lang="de">Masterstudent · TH Rosenheim</p>
+    </div>
+  </div>
+
+  <p class="pitch" lang="en">I build real things. My master's thesis adds rare-earth oxides to 316L steel powder and prints it on a TruPrint 1000. I have designed a 52-gram 3D-printed vacuum gripper, built a digital twin for a Siemens PLC lab, co-founded a 3D-printing business that sold 20+ products, and won prizes with robots I built.</p>
+  <p class="pitch" lang="de">Ich baue echte Dinge. In meiner Masterarbeit bringe ich Seltenerdoxide in 316L-Stahlpulver ein und drucke es auf einer TruPrint 1000. Ich habe einen 52 Gramm leichten, 3D-gedruckten Vakuumgreifer konstruiert, einen digitalen Zwilling für ein Siemens-SPS-Labor gebaut, ein 3D-Druck-Unternehmen mit über 20 verkauften Produkten mitgegründet und mit eigenen Robotern Preise gewonnen.</p>
+  <span class="status" lang="en">Open to Werkstudent roles now · full-time from 2027 · anywhere in Germany</span>
+  <span class="status" lang="de">Werkstudent ab sofort · Festanstellung ab 2027 · deutschlandweit</span>
+  <div class="cta">
+    <a class="btn primary" href="#projects"><span lang="en">See projects</span><span lang="de">Projekte ansehen</span></a>
+    <a class="btn" href="#contact"><span lang="en">Get in touch</span><span lang="de">Kontakt</span></a>
+    <a class="btn" href="https://github.com/ajadav-mech">GitHub</a>
+  </div>
+
+  <section id="focus">
+    <p class="eyebrow"><span lang="en">Focus areas</span><span lang="de">Schwerpunkte</span></p>
+    <h2><span lang="en">Four fields, one engineer</span><span lang="de">Vier Bereiche, ein Ingenieur</span></h2>
+    <div class="focus">
+      <div><span class="k">LPBF · FDM · DLP · DfAM</span>
+        <h3><span lang="en">Additive manufacturing</span><span lang="de">Additive Fertigung</span></h3>
+        <p lang="en">Metal powder research on a TruPrint 1000, a multi-material PolyJet gripper, and two years of polymer printing in production.</p>
+        <p lang="de">Metallpulverforschung auf einer TruPrint 1000, ein PolyJet-Mehrmaterialgreifer und zwei Jahre Kunststoffdruck in der Serienfertigung.</p></div>
+      <div><span class="k">Siemens PLC · S7 · HMI</span>
+        <h3><span lang="en">Automation</span><span lang="de">Automatisierung</span></h3>
+        <p lang="en">Digital twin and control UI for a five-station Siemens PLC lab, STM32 control for robots.</p>
+        <p lang="de">Digitaler Zwilling und Bedienoberfläche für ein Siemens-SPS-Labor mit fünf Stationen, STM32-Steuerung für Roboter.</p></div>
+      <div><span class="k">SolidWorks · NX · Fusion 360</span>
+        <h3><span lang="en">CAD &amp; design</span><span lang="de">CAD &amp; Konstruktion</span></h3>
+        <p lang="en">CSWA in Mechanical Design and Additive Manufacturing. Products, grippers and robot mechanisms taken from model to working part.</p>
+        <p lang="de">CSWA Mechanical Design und Additive Manufacturing. Produkte, Greifer und Robotermechanismen vom Modell bis zum funktionierenden Teil.</p></div>
+      <div><span class="k">SEM/EDX · ANOVA · FEM/CFD</span>
+        <h3><span lang="en">R&amp;D &amp; materials</span><span lang="de">F&amp;E &amp; Werkstoffe</span></h3>
+        <p lang="en">Ball milling, metallography, hardness testing with Welch ANOVA, FEM and CFD in ANSYS.</p>
+        <p lang="de">Kugelmahlen, Metallographie, Härteprüfung mit Welch-ANOVA, FEM und CFD in ANSYS.</p></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <p class="eyebrow"><span lang="en">Selected work</span><span lang="de">Ausgewählte Arbeiten</span></p>
+    <h2><span lang="en">Projects</span><span lang="de">Projekte</span></h2>
+    <div class="projects">
+      <article class="card lead">
+        <div class="thumb"><img src="assets/lpbf.jpg" alt="316L samples in the build chamber"></div>
+        <div class="in">
+          <p class="spec">316L + Y₂O₃ / CeO₂ · TruPrint 1000 · <span lang="en">Master's thesis 2026</span><span lang="de">Masterarbeit 2026</span></p>
+          <h3><span lang="en">Grain refinement of LPBF 316L steel with rare-earth oxides</span><span lang="de">Kornfeinung von LPBF-316L-Stahl mit Seltenerdoxiden</span></h3>
+          <p lang="en">First side-by-side comparison of Y₂O₃ and CeO₂ in LPBF 316L. Screened five ball-milling routes, printed four conditions at 100 J/mm³ and tested them with SEM/EDX and 200+ HV5 indents. Result: no hardness change (p = 0.35), a porosity limit at 0.7 wt.% and a traced contamination path.</p>
+          <p lang="de">Erster direkter Vergleich von Y₂O₃ und CeO₂ in LPBF 316L. Fünf Mahlrouten untersucht, vier Varianten bei 100 J/mm³ gedruckt und mit REM/EDX und über 200 HV5-Eindrücken geprüft. Ergebnis: keine Härteänderung (p = 0,35), Porositätsgrenze bei 0,7 Gew.-% und ein aufgeklärter Kontaminationspfad.</p>
+          <div class="tags"><span>LPBF</span><span>ball milling</span><span>SEM/EDX</span><span>Welch ANOVA</span><span>metallography</span></div>
+          <a class="more" href="https://github.com/ajadav-mech/lpbf-316l-inoculation"><span lang="en">Read the project →</span><span lang="de">Zum Projekt →</span></a>
+        </div>
+      </article>
+      <article class="card lead">
+        <div class="thumb"><img src="assets/gripper.jpg" alt="AM vacuum gripper render"></div>
+        <div class="in">
+          <p class="spec">PolyJet · VeroClear + TangoBlack · 2026</p>
+          <h3><span lang="en">Additively manufactured vacuum gripper</span><span lang="de">Additiv gefertigter Vakuumgreifer</span></h3>
+          <p lang="en">Four integrated Venturi nozzles in one multi-material print. 51.7 g against a 100 g limit, twice the suction needed, 72.80 € part cost.</p>
+          <p lang="de">Vier integrierte Venturi-Düsen in einem Mehrmaterialdruck. 51,7 g statt max. 100 g, doppelte Saugleistung, 72,80 € Teilekosten.</p>
+          <div class="tags"><span>DfAM</span><span>CFD</span><span>ANSYS FEM</span><span>topology opt.</span></div>
+          <a class="more" href="https://github.com/ajadav-mech/pneumatic-vacuum-gripper-dfam"><span lang="en">Read the project →</span><span lang="de">Zum Projekt →</span></a>
+        </div>
+      </article>
+      <article class="card lead">
+        <div class="thumb"><img src="assets/twin.jpg" alt="HMI main screen"></div>
+        <div class="in">
+          <p class="spec">Siemens PLC · S7 · AVEVA ArchestrA · 2025</p>
+          <h3><span lang="en">Digital twin of a PLC production lab</span><span lang="de">Digitaler Zwilling eines SPS-Labors</span></h3>
+          <p lang="en">Control UI for five Siemens PLC stations: SolidWorks-based animated graphics, scripted motion, live PLC and weather-station data on a touch panel.</p>
+          <p lang="de">Bedienoberfläche für fünf Siemens-SPS-Stationen: animierte Grafiken aus SolidWorks, skriptgesteuerte Abläufe, Live-Daten von SPS und Wetterstation.</p>
+          <div class="tags"><span>SCADA/HMI</span><span>S7</span><span>SolidWorks</span><span>.NET</span></div>
+          <a class="more" href="https://github.com/ajadav-mech/digital-twin-production-facility"><span lang="en">Read the project →</span><span lang="de">Zum Projekt →</span></a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb"><img src="assets/balancing.jpg" alt="Self-balancing robot render"></div>
+        <div class="in">
+          <p class="spec">STM32 · NEMA 17 · <span lang="en">3rd prize ROBOFEST-Gujarat 3.0</span><span lang="de">3. Preis ROBOFEST-Gujarat 3.0</span></p>
+          <h3><span lang="en">Self-balancing robot with leg mechanism</span><span lang="de">Selbstbalancierender Roboter mit Beinmechanik</span></h3>
+          <p lang="en">Wheeled biped with 4-bar linkage knees that keep the body level over obstacles. Team won 3rd prize at the prototype stage and a ₹5 lakh team prize.</p>
+          <p lang="de">Zweirädriger Roboter mit Viergelenk-Knien, die den Körper über Hindernisse ruhig halten. 3. Preis in der Prototyp-Stufe, Teampreis ₹5 Lakh.</p>
+          <div class="tags"><span>mechanisms</span><span>STM32</span><span>IMU</span><span>3D printing</span></div>
+          <a class="more" href="https://github.com/ajadav-mech/self-balancing-robot"><span lang="en">Read the project →</span><span lang="de">Zum Projekt →</span></a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb"><!-- <img src="assets/sewing3d.jpg" alt="Sewing3D models"> -->product photo</div>
+        <div class="in">
+          <p class="spec">FDM · DLP · 2023–2025</p>
+          <h3><span lang="en">Sewing3D: 3D-printing business</span><span lang="de">Sewing3D: 3D-Druck-Unternehmen</span></h3>
+          <p lang="en">Co-founded it. Designed, produced and sold 20+ aircraft models on Amazon India and kept the printer fleet running.</p>
+          <p lang="de">Mitgegründet. Über 20 Flugzeugmodelle konstruiert, gefertigt und über Amazon India verkauft; Druckerflotte betrieben.</p>
+          <div class="tags"><span>product dev</span><span>Fusion 360</span><span>production</span></div>
+          <a class="more" href="https://github.com/ajadav-mech/sewing3d"><span lang="en">Read the project →</span><span lang="de">Zum Projekt →</span></a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb"><!-- <img src="assets/manifold.jpg" alt="Manifold render"> -->manifold render</div>
+        <div class="in">
+          <p class="spec">DfAM · LPBF</p>
+          <h3><span lang="en">Hydraulic manifold redesigned for LPBF</span><span lang="de">Hydraulikblock für LPBF neu konstruiert</span></h3>
+          <p lang="en">Drilled channels replaced with smooth, self-supporting internal paths for metal additive manufacturing.</p>
+          <p lang="de">Gebohrte Kanäle durch strömungsgünstige, selbsttragende Kanäle für die additive Fertigung ersetzt.</p>
+          <div class="tags"><span>DfAM</span><span>lightweighting</span><span>CAD</span></div>
+          <a class="more" href="https://github.com/ajadav-mech/hydraulic-manifold-lpbf"><span lang="en">Read the project →</span><span lang="de">Zum Projekt →</span></a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb"><!-- <img src="assets/arm.jpg" alt="ARISTO XT arm"> -->arm photo</div>
+        <div class="in">
+          <p class="spec"><span lang="en">Bachelor's thesis</span><span lang="de">Bachelorarbeit</span></p>
+          <h3><span lang="en">ARISTO XT robotic arm</span><span lang="de">ARISTO XT Roboterarm</span></h3>
+          <p lang="en">Designed, built and programmed a robotic arm.</p>
+          <p lang="de">Roboterarm konstruiert, gebaut und programmiert.</p>
+          <div class="tags"><span>kinematics</span><span>CAD</span><span>embedded</span></div>
+          <a class="more" href="https://github.com/ajadav-mech/aristo-xt-robotic-arm"><span lang="en">Read the project →</span><span lang="de">Zum Projekt →</span></a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb"><!-- <img src="assets/robots.jpg" alt="Walking robots"> -->robots photo</div>
+        <div class="in">
+          <p class="spec">2 · 4 · 6 <span lang="en">legs</span><span lang="de">Beine</span></p>
+          <h3><span lang="en">Walking robots</span><span lang="de">Laufroboter</span></h3>
+          <p lang="en">Biped, quadruped and hexapod robots with programmed gaits. 2nd places in Robo Soccer, Robo War and Motoboat competitions.</p>
+          <p lang="de">Zweibeiner, Vierbeiner und Hexapod mit programmierten Gangarten. 2. Plätze bei Robo Soccer, Robo War und Motoboat.</p>
+          <div class="tags"><span>gaits</span><span>servos</span><span>Arduino</span></div>
+          <a class="more" href="https://github.com/ajadav-mech/walking-robots"><span lang="en">Read the project →</span><span lang="de">Zum Projekt →</span></a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="thumb"><!-- <img src="assets/iot.jpg" alt="IoT builds"> -->IoT build photo</div>
+        <div class="in">
+          <p class="spec">ESP32 · ESP8266 · OpenCV · 2022</p>
+          <h3><span lang="en">Industrial IoT projects</span><span lang="de">IIoT-Projekte</span></h3>
+          <p lang="en">A self-built 3D printer with a 5-axis arm that removes finished parts, a smart home system with face recognition, and a smart charger.</p>
+          <p lang="de">Selbstgebauter 3D-Drucker mit 5-Achs-Arm zur Teileentnahme, Smart-Home-System mit Gesichtserkennung und ein Smart Charger.</p>
+          <div class="tags"><span>IoT cloud</span><span>robot arm</span><span>Python</span></div>
+          <a class="more" href="https://github.com/ajadav-mech/iiot-projects"><span lang="en">Read the project →</span><span lang="de">Zum Projekt →</span></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="cols">
+      <div>
+        <p class="eyebrow"><span lang="en">Work</span><span lang="de">Beruf</span></p>
+        <h2><span lang="en">Experience</span><span lang="de">Erfahrung</span></h2>
+        <div class="timeline">
+          <div class="tl"><span class="when">06/2023 – 05/2025</span>
+            <h3><span lang="en">Co-Founder &amp; Prototype Developer</span><span lang="de">Mitgründer &amp; Prototypenentwickler</span> · Sewing3D</h3>
+            <p lang="en">CAD, prototyping, FDM/DLP production, workflow optimisation, machine reliability.</p>
+            <p lang="de">CAD, Prototyping, FDM/DLP-Fertigung, Prozessoptimierung, Maschinenzuverlässigkeit.</p></div>
+          <div class="tl"><span class="when">06/2023 – 12/2024</span>
+            <h3><span lang="en">Robotics Instructor</span><span lang="de">Robotik-Dozent</span> · BrightCHAMPS</h3>
+            <p lang="en">Taught embedded systems, sensors and automation basics to 50+ students in India, Japan and the USA.</p>
+            <p lang="de">Embedded Systems, Sensorik und Automatisierungsgrundlagen für 50+ Schüler in Indien, Japan und den USA.</p></div>
+          <div class="tl"><span class="when">06/2022 – 07/2023</span>
+            <h3><span lang="en">Production Technology Intern</span><span lang="de">Praktikant Produktionstechnik</span> · RAJOO Engineers</h3>
+            <p lang="en">CNC machining (5-axis, VMC) and G-code, PLC programming and sensor integration, production and process optimisation at a plastics extrusion machinery maker.</p>
+            <p lang="de">CNC-Bearbeitung (5-Achs, VMC) und G-Code, SPS-Programmierung und Sensorintegration, Prozessoptimierung bei einem Hersteller von Kunststoff-Extrusionsanlagen.</p></div>
+        </div>
+      </div>
+      <div>
+        <p class="eyebrow"><span lang="en">Study</span><span lang="de">Studium</span></p>
+        <h2><span lang="en">Education</span><span lang="de">Ausbildung</span></h2>
+        <div class="timeline">
+          <div class="tl"><span class="when">10/2024 – <span lang="en">present</span><span lang="de">heute</span></span>
+            <h3>Master Engineering Sciences – Mechatronics</h3>
+            <p>TH Rosenheim · <span lang="en">DfAM, digital twins, process automation, reliability, statistics</span><span lang="de">DfAM, digitale Zwillinge, Prozessautomatisierung, Zuverlässigkeit, Statistik</span></p></div>
+          <div class="tl"><span class="when">06/2019 – 05/2023</span>
+            <h3>Bachelor Mechatronics Engineering</h3>
+            <p>U. V. Patel College of Engineering, Ganpat University · <span lang="en">grade 1.46</span><span lang="de">Note 1,46</span></p></div>
+          <div class="tl"><span class="when">12/2023</span>
+            <h3><span lang="en">3rd prize, ROBOFEST-Gujarat 3.0</span><span lang="de">3. Preis, ROBOFEST-Gujarat 3.0</span></h3>
+            <p lang="en">GUJCOST state robotics competition, prototype stage, self-balancing robot. ₹5,00,000 team prize.</p>
+            <p lang="de">Robotik-Wettbewerb von GUJCOST, Prototyp-Stufe, selbstbalancierender Roboter. Teampreis ₹5,00,000.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <p class="eyebrow"><span lang="en">Toolbox</span><span lang="de">Werkzeuge</span></p>
+    <h2><span lang="en">Skills</span><span lang="de">Kenntnisse</span></h2>
+    <dl class="skills">
+      <div><dt>CAD</dt><dd>SolidWorks (CSWA Mechanical Design + Additive Manufacturing), Siemens NX, Fusion 360, AutoCAD, Blender</dd></div>
+      <div><dt><span lang="en">Simulation</span><span lang="de">Simulation</span></dt><dd>ANSYS, FEM, MATLAB/Simulink, SAS</dd></div>
+      <div><dt><span lang="en">Manufacturing</span><span lang="de">Fertigung</span></dt><dd>LPBF, PolyJet, FDM, DLP, CNC (5-axis, VMC), G-code, <span lang="en">injection moulding</span><span lang="de">Spritzguss</span></dd></div>
+      <div><dt><span lang="en">Automation</span><span lang="de">Automatisierung</span></dt><dd>Siemens PLC, S7, AVEVA ArchestrA, SCADA/HMI, STM32</dd></div>
+      <div><dt><span lang="en">Code</span><span lang="de">Programmierung</span></dt><dd>Python, C/C++, Arduino, .NET scripting</dd></div>
+      <div><dt><span lang="en">Quality</span><span lang="de">Qualität</span></dt><dd>SPC, ANOVA, <span lang="en">failure analysis, reliability, SEM/EDX, hardness testing</span><span lang="de">Fehleranalyse, Zuverlässigkeit, REM/EDX, Härteprüfung</span></dd></div>
+      <div><dt><span lang="en">Languages</span><span lang="de">Sprachen</span></dt><dd lang="en">English C1 (IELTS 8.0) · German B1, B2 exam Nov 2026 · Hindi, Gujarati native</dd><dd lang="de">Englisch C1 (IELTS 8.0) · Deutsch B1, B2-Prüfung 11/2026 · Hindi, Gujarati Muttersprache</dd></div>
+    </dl>
+  </section>
+
+  <section id="contact">
+    <p class="eyebrow"><span lang="en">Contact</span><span lang="de">Kontakt</span></p>
+    <h2><span lang="en">Let's talk</span><span lang="de">Sprechen wir</span></h2>
+    <div class="contact">
+      <p style="margin:0;max-width:60ch" lang="en">Looking for a Werkstudent now or a graduate engineer in 2027? I reply within a day.</p>
+      <p style="margin:0;max-width:60ch" lang="de">Sie suchen einen Werkstudenten oder ab 2027 einen Absolventen? Ich antworte innerhalb eines Tages.</p>
+      <div class="row"><span class="lab">Email</span><a class="val" href="mailto:agney2001@gmail.com">agney2001@gmail.com</a><button class="copy" type="button" id="copy-mail" data-copy="agney2001@gmail.com">copy</button></div>
+      <div class="row"><span class="lab"><span lang="en">Phone</span><span lang="de">Telefon</span></span><span class="val">+49 1551 0677866</span><button class="copy" type="button" id="copy-phone" data-copy="+4915510677866">copy</button></div>
+      <div class="row"><span class="lab">LinkedIn</span><a class="val" href="https://www.linkedin.com/in/agneyjadav/">linkedin.com/in/agneyjadav</a></div>
+      <div class="row"><span class="lab">GitHub</span><a class="val" href="https://github.com/ajadav-mech">github.com/ajadav-mech</a></div>
+    </div>
+  </section>
+
+  <footer>Agney Jadav · Rosenheim · 2026</footer>
+</main>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  function setLang(l){
+    root.setAttribute('data-lang',l); root.lang=l;
+    document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.set===l))});
+    try{localStorage.setItem('lang',l)}catch(e){}
+  }
+  var start='en';
+  try{start=localStorage.getItem('lang')||start}catch(e){}
+  if(location.hash==='#de')start='de';
+  setLang(start);
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.set)})});
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=b.dataset.copy;
+      var done=function(){b.textContent='copied';setTimeout(function(){b.textContent='copy'},1500)};
+      if(navigator.clipboard){navigator.clipboard.writeText(t).then(done,function(){selectVal(b)})}else{selectVal(b)}
+    });
+  });
+  function selectVal(b){var v=b.parentNode.querySelector('.val');var r=document.createRange();r.selectNodeContents(v);var s=getSelection();s.removeAllRanges();s.addRange(r)}
+})();
+</script>
+
+</body>
+</html>
