@@ -110,6 +110,16 @@ h2{font-family:var(--display);font-weight:600;font-size:clamp(1.7rem,3.6vw,2.3re
 .row .val{font-size:1.05rem;user-select:all;overflow-wrap:anywhere;min-width:0}
 .copy{background:none;border:1px solid var(--line);color:var(--muted);font:500 .74rem var(--mono);padding:.25rem .55rem;border-radius:3px;cursor:pointer}
 .copy:hover{color:var(--ink);border-color:var(--amber)}
+.thesis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:2rem 2.5rem;align-items:start}
+.thesis h3{font-family:var(--display);font-weight:600;font-size:1.15rem;margin:1.4rem 0 .5rem}
+.thesis h3:first-child{margin-top:0}
+.thesis p,.thesis li{color:var(--muted);font-size:.95rem;max-width:62ch}
+.thesis ol,.thesis ul{margin:0;padding-left:1.2rem;display:grid;gap:.35rem}
+.thesis b{color:var(--ink);font-weight:500}
+.figs{display:grid;gap:1rem}
+.figs figure{margin:0;background:var(--plate);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.figs img{display:block;width:100%;height:auto}
+.figs figcaption{font-family:var(--mono);font-size:.72rem;color:var(--muted);padding:.6rem .8rem}
 footer{margin-top:3rem;font-family:var(--mono);font-size:.75rem;color:#5c6975}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -118,9 +128,10 @@ footer{margin-top:3rem;font-family:var(--mono);font-size:.75rem;color:#5c6975}
 <body>
 <header class="bar">
   <div class="wrap">
-    <span class="mark"><b>A. Jadav</b> · Mechatronics</span>
+    <span class="mark"><b>Agney Jadav</b> · Mechatronics</span>
     <nav aria-label="Sections">
       <a href="#projects"><span lang="en">Projects</span><span lang="de">Projekte</span></a>
+      <a href="#thesis"><span lang="en">Thesis</span><span lang="de">Masterarbeit</span></a>
       <a href="#experience"><span lang="en">Experience</span><span lang="de">Erfahrung</span></a>
       <a href="#skills"><span lang="en">Skills</span><span lang="de">Kenntnisse</span></a>
       <a href="#contact"><span lang="en">Contact</span><span lang="de">Kontakt</span></a>
@@ -151,6 +162,8 @@ footer{margin-top:3rem;font-family:var(--mono);font-size:.75rem;color:#5c6975}
   <div class="cta">
     <a class="btn primary" href="#projects"><span lang="en">See projects</span><span lang="de">Projekte ansehen</span></a>
     <a class="btn" href="#contact"><span lang="en">Get in touch</span><span lang="de">Kontakt</span></a>
+    <a class="btn" href="assets/Agney_Jadav_CV_EN.pdf" lang="en" download>Download CV (PDF)</a>
+    <a class="btn" href="assets/Agney_Jadav_CV_DE.pdf" lang="de" download>Lebenslauf (PDF)</a>
     <a class="btn" href="https://github.com/ajadav-mech">GitHub</a>
   </div>
 
@@ -184,7 +197,7 @@ footer{margin-top:3rem;font-family:var(--mono);font-size:.75rem;color:#5c6975}
       <article class="card lead">
         <div class="thumb"><img src="assets/lpbf.jpg" alt="316L samples in the build chamber"></div>
         <div class="in">
-          <p class="spec">316L + Y₂O₃ / CeO₂ · TruPrint 1000 · <span lang="en">Master's thesis 2026</span><span lang="de">Masterarbeit 2026</span></p>
+          <p class="spec">316L + Y₂O₃ / CeO₂ · TruPrint 1000 · <span lang="en">Master's thesis · 10/2026</span><span lang="de">Masterarbeit · 10/2026</span></p>
           <h3><span lang="en">Grain refinement of LPBF 316L steel with rare-earth oxides</span><span lang="de">Kornfeinung von LPBF-316L-Stahl mit Seltenerdoxiden</span></h3>
           <p lang="en">First side-by-side comparison of Y₂O₃ and CeO₂ in LPBF 316L. Screened five ball-milling routes, printed four conditions at 100 J/mm³ and tested them with SEM/EDX and 200+ HV5 indents. Result: no hardness change (p = 0.35), a porosity limit at 0.7 wt.% and a traced contamination path.</p>
           <p lang="de">Erster direkter Vergleich von Y₂O₃ und CeO₂ in LPBF 316L. Fünf Mahlrouten untersucht, vier Varianten bei 100 J/mm³ gedruckt und mit REM/EDX und über 200 HV5-Eindrücken geprüft. Ergebnis: keine Härteänderung (p = 0,35), Porositätsgrenze bei 0,7 Gew.-% und ein aufgeklärter Kontaminationspfad.</p>
@@ -226,7 +239,6 @@ footer{margin-top:3rem;font-family:var(--mono);font-size:.75rem;color:#5c6975}
         </div>
       </article>
       <article class="card">
-        <div class="thumb"><!-- <img src="assets/sewing3d.jpg" alt="Sewing3D models"> -->product photo</div>
         <div class="in">
           <p class="spec">FDM · DLP · 2023–2025</p>
           <h3><span lang="en">Sewing3D: 3D-printing business</span><span lang="de">Sewing3D: 3D-Druck-Unternehmen</span></h3>
@@ -237,7 +249,6 @@ footer{margin-top:3rem;font-family:var(--mono);font-size:.75rem;color:#5c6975}
         </div>
       </article>
       <article class="card">
-        <div class="thumb"><!-- <img src="assets/manifold.jpg" alt="Manifold render"> -->manifold render</div>
         <div class="in">
           <p class="spec">DfAM · LPBF</p>
           <h3><span lang="en">Hydraulic manifold redesigned for LPBF</span><span lang="de">Hydraulikblock für LPBF neu konstruiert</span></h3>
@@ -248,18 +259,16 @@ footer{margin-top:3rem;font-family:var(--mono);font-size:.75rem;color:#5c6975}
         </div>
       </article>
       <article class="card">
-        <div class="thumb"><!-- <img src="assets/arm.jpg" alt="ARISTO XT arm"> -->arm photo</div>
         <div class="in">
-          <p class="spec"><span lang="en">Bachelor's thesis</span><span lang="de">Bachelorarbeit</span></p>
+          <p class="spec"><span lang="en">Bachelor's thesis · 2023 · 6-axis</span><span lang="de">Bachelorarbeit · 2023 · 6 Achsen</span></p>
           <h3><span lang="en">ARISTO XT robotic arm</span><span lang="de">ARISTO XT Roboterarm</span></h3>
-          <p lang="en">Designed, built and programmed a robotic arm.</p>
-          <p lang="de">Roboterarm konstruiert, gebaut und programmiert.</p>
+          <p lang="en">Six-axis robotic arm, designed, built and programmed end to end: CAD of links, joints and base, actuator and electronics selection, kinematics and motion control, assembly, wiring and testing.</p>
+          <p lang="de">Sechsachsiger Roboterarm, durchgängig konstruiert, gebaut und programmiert: CAD von Gliedern, Gelenken und Sockel, Auswahl von Antrieben und Elektronik, Kinematik und Bewegungssteuerung, Montage, Verdrahtung und Test.</p>
           <div class="tags"><span>kinematics</span><span>CAD</span><span>embedded</span></div>
           <a class="more" href="https://github.com/ajadav-mech/aristo-xt-robotic-arm"><span lang="en">Read the project →</span><span lang="de">Zum Projekt →</span></a>
         </div>
       </article>
       <article class="card">
-        <div class="thumb"><!-- <img src="assets/robots.jpg" alt="Walking robots"> -->robots photo</div>
         <div class="in">
           <p class="spec">2 · 4 · 6 <span lang="en">legs</span><span lang="de">Beine</span></p>
           <h3><span lang="en">Walking robots</span><span lang="de">Laufroboter</span></h3>
@@ -270,7 +279,6 @@ footer{margin-top:3rem;font-family:var(--mono);font-size:.75rem;color:#5c6975}
         </div>
       </article>
       <article class="card">
-        <div class="thumb"><!-- <img src="assets/iot.jpg" alt="IoT builds"> -->IoT build photo</div>
         <div class="in">
           <p class="spec">ESP32 · ESP8266 · OpenCV · 2022</p>
           <h3><span lang="en">Industrial IoT projects</span><span lang="de">IIoT-Projekte</span></h3>
@@ -280,6 +288,53 @@ footer{margin-top:3rem;font-family:var(--mono);font-size:.75rem;color:#5c6975}
           <a class="more" href="https://github.com/ajadav-mech/iiot-projects"><span lang="en">Read the project →</span><span lang="de">Zum Projekt →</span></a>
         </div>
       </article>
+    </div>
+  </section>
+
+  <section id="thesis">
+    <p class="eyebrow"><span lang="en">Master's thesis</span><span lang="de">Masterarbeit</span></p>
+    <h2><span lang="en">Rare-earth oxides in LPBF 316L steel</span><span lang="de">Seltenerdoxide in LPBF-316L-Stahl</span></h2>
+    <div class="thesis">
+      <div>
+        <p lang="en" style="margin:0 0 .4rem">TH Rosenheim · submitted 10/2026 · examiners Prof. Dr. Amber Schneeweis and Prof. Dr.-Ing. Fabian Riß</p>
+        <p lang="de" style="margin:0 0 .4rem">TH Rosenheim · eingereicht 10/2026 · Prüfer Prof. Dr. Amber Schneeweis und Prof. Dr.-Ing. Fabian Riß</p>
+        <h3><span lang="en">The question</span><span lang="de">Fragestellung</span></h3>
+        <p lang="en">LPBF of 316L gives coarse columnar grains along the build direction. Ceramic inoculants can refine them, but results for rare-earth oxides are inconsistent and Y₂O₃ and CeO₂ had not been compared under identical conditions.</p>
+        <p lang="de">LPBF von 316L erzeugt grobe, stängelförmige Körner entlang der Baurichtung. Keramische Impfmittel können das Gefüge verfeinern, die Ergebnisse für Seltenerdoxide sind aber widersprüchlich, und Y₂O₃ und CeO₂ wurden bisher nicht unter gleichen Bedingungen verglichen.</p>
+        <h3><span lang="en">What I did</span><span lang="de">Vorgehen</span></h3>
+        <ol lang="en">
+          <li><b>Powder-mixing route:</b> screened five planetary ball-milling set-ups at the FRITSCH lab, judged by SEM dispersion and shear-cell flowability.</li>
+          <li><b>Printing:</b> baseline 316L plus 0.3 and 0.7 wt.% Y₂O₃ and 0.3 wt.% CeO₂, printed together on a TRUMPF TruPrint 1000 at 100 J/mm³.</li>
+          <li><b>Characterisation:</b> optical microscopy, porosity, SEM/EDX, Vickers hardness (HV5) with Welch ANOVA.</li>
+        </ol>
+        <ol lang="de">
+          <li><b>Mischprozess:</b> fünf Planetenkugelmühlen-Konfigurationen im FRITSCH-Labor untersucht, bewertet über REM-Dispersion und Scherzellen-Fließfähigkeit.</li>
+          <li><b>Druck:</b> Referenz-316L sowie 0,3 und 0,7 Gew.-% Y₂O₃ und 0,3 Gew.-% CeO₂, gemeinsam auf einer TRUMPF TruPrint 1000 bei 100 J/mm³ gedruckt.</li>
+          <li><b>Charakterisierung:</b> Lichtmikroskopie, Porosität, REM/EDX, Vickers-Härte (HV5) mit Welch-ANOVA.</li>
+        </ol>
+        <h3><span lang="en">Findings</span><span lang="de">Ergebnisse</span></h3>
+        <ul lang="en">
+          <li>No significant hardness change from the inoculants.</li>
+          <li>0.7 wt.% Y₂O₃ caused lack-of-fusion porosity at unchanged parameters.</li>
+          <li>Yttrium found in CeO₂ samples was traced to residue on the milling media.</li>
+          <li>Next steps: finer dispersion and adapted laser parameters.</li>
+        </ul>
+        <ul lang="de">
+          <li>Keine signifikante Härteänderung durch die Impfmittel.</li>
+          <li>0,7 Gew.-% Y₂O₃ führte bei unveränderten Parametern zu Bindefehlern.</li>
+          <li>Yttrium in den CeO₂-Proben wurde auf Rückstände an den Mahlkörpern zurückgeführt.</li>
+          <li>Nächste Schritte: feinere Dispersion und angepasste Laserparameter.</li>
+        </ul>
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/ajadav-mech/lpbf-316l-inoculation"><span lang="en">Thesis summary on GitHub</span><span lang="de">Zusammenfassung auf GitHub</span></a>
+        </div>
+        <p lang="en" style="margin-top:1rem;font-size:.85rem">The full thesis is not public. Ask me for a copy.</p>
+        <p lang="de" style="margin-top:1rem;font-size:.85rem">Die vollständige Arbeit ist nicht öffentlich. Gern auf Anfrage.</p>
+      </div>
+      <div class="figs">
+        <figure><img src="assets/thesis-sem-ceo2.jpg" alt="SEM image of CeO2-coated 316L powder" loading="lazy"><figcaption><span lang="en">SEM: CeO₂-coated 316L powder</span><span lang="de">REM: CeO₂-beschichtetes 316L-Pulver</span></figcaption></figure>
+        <figure><img src="assets/thesis-red-light.jpg" alt="Bright red emission while printing Y2O3 powder" loading="lazy"><figcaption><span lang="en">Bright red emission while printing Y₂O₃ powders</span><span lang="de">Helle rote Emission beim Drucken der Y₂O₃-Pulver</span></figcaption></figure>
+      </div>
     </div>
   </section>
 
@@ -297,7 +352,7 @@ footer{margin-top:3rem;font-family:var(--mono);font-size:.75rem;color:#5c6975}
             <h3><span lang="en">Robotics Instructor</span><span lang="de">Robotik-Dozent</span> · BrightCHAMPS</h3>
             <p lang="en">Taught embedded systems, sensors and automation basics to 50+ students in India, Japan and the USA.</p>
             <p lang="de">Embedded Systems, Sensorik und Automatisierungsgrundlagen für 50+ Schüler in Indien, Japan und den USA.</p></div>
-          <div class="tl"><span class="when">06/2022 – 07/2023</span>
+          <div class="tl"><span class="when">07/2022 <span lang="en">(3 weeks)</span><span lang="de">(3 Wochen)</span></span>
             <h3><span lang="en">Production Technology Intern</span><span lang="de">Praktikant Produktionstechnik</span> · RAJOO Engineers</h3>
             <p lang="en">CNC machining (5-axis, VMC) and G-code, PLC programming and sensor integration, production and process optimisation at a plastics extrusion machinery maker.</p>
             <p lang="de">CNC-Bearbeitung (5-Achs, VMC) und G-Code, SPS-Programmierung und Sensorintegration, Prozessoptimierung bei einem Hersteller von Kunststoff-Extrusionsanlagen.</p></div>
@@ -312,7 +367,7 @@ footer{margin-top:3rem;font-family:var(--mono);font-size:.75rem;color:#5c6975}
             <p>TH Rosenheim · <span lang="en">DfAM, digital twins, process automation, reliability, statistics</span><span lang="de">DfAM, digitale Zwillinge, Prozessautomatisierung, Zuverlässigkeit, Statistik</span></p></div>
           <div class="tl"><span class="when">06/2019 – 05/2023</span>
             <h3>Bachelor Mechatronics Engineering</h3>
-            <p>U. V. Patel College of Engineering, Ganpat University · <span lang="en">grade 1.46</span><span lang="de">Note 1,46</span></p></div>
+            <p>U. V. Patel College of Engineering, Ganpat University · Note 1,46</p></div>
           <div class="tl"><span class="when">12/2023</span>
             <h3><span lang="en">3rd prize, ROBOFEST-Gujarat 3.0</span><span lang="de">3. Preis, ROBOFEST-Gujarat 3.0</span></h3>
             <p lang="en">GUJCOST state robotics competition, prototype stage, self-balancing robot. ₹5,00,000 team prize.</p>
